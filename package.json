@@ -1,25 +1,41 @@
 {
-  "name": "skibidi-plus-plus",
-  "displayName": "skibidi-plus-plus",
-  "description": "Syntax highlighting for Skibidi++ programming language",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.103.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [{
-      "id": "skibidipp",
-      "aliases": ["skibidi++", "skibidipp"],
-      "extensions": ["spp"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "skibidipp",
-      "scopeName": "source.skibidipp",
-      "path": "./syntaxes/skibidipp.tmLanguage.json"
-    }]
-  }
+	"name": "skibidi-plus-plus",
+	"displayName": "skibidi-plus-plus",
+	"description": "Syntax highlighting for Skibidi++ programming language",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.103.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "skibidipp",
+				"aliases": [
+					"skibidi++",
+					"skibidipp"
+				],
+				"extensions": [
+					".spp"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "skibidipp",
+				"scopeName": "source.skibidipp",
+				"path": "./syntaxes/skibidipp.tmLanguage.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "Skibidi++ Theme",
+				"uiTheme": "vs-dark",
+				"path": "./themes/skibidipp.json"
+			}
+		]
+	}
 }

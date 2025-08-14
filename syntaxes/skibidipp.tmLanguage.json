@@ -1,20 +1,35 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "skibidi++",
+	"name": "Skibidi++",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#keywords" },
+		{ "include": "#storage" },
+		{ "include": "#strings" },
+		{ "include": "#numbers" },
+		{ "include": "#comments" },
+		{ "include": "#constants" },
+		{ "include": "#operators" },
+		{ "include": "#builtin_functions" },
+		{ "include": "#functions" },
+		{ "include": "#objects" },
+		{ "include": "#variables" }
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.skibidipp",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.skibidipp",
+					"match": "\\b(if|else|while|for|return|function|class|new|this)\\b"
+				}
+			]
+		},
+		"storage": {
+			"patterns": [
+				{
+					"name": "storage.type.skibidipp",
+					"match": "\\b(const|let|var)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.skibidipp",
@@ -26,6 +41,55 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"numbers": {
+			"name": "constant.numeric.skibidipp",
+			"match": "\\b([0-9]+(\\.[0-9]+)?(e[+-]?[0-9]+)?)\\b"
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.skibidipp",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.skibidipp",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.boolean.skibidipp",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.language.null.skibidipp",
+					"match": "\\bnull\\b"
+				}
+			]
+		},
+		"operators": {
+			"name": "keyword.operator.skibidipp",
+			"match": "\\+|\\-|\\*|\\/|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\%"
+		},
+		"builtin_functions": {
+			"name": "support.function.skibidipp",
+			"match": "\\b(exit|print)\\b"
+		},
+		"functions": {
+			"name": "entity.name.function.skibidipp",
+			"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
+		},
+		"objects": {
+			"name": "variable.other.object.skibidipp",
+			"match": "\\b(console)\\b"
+		},
+		"variables": {
+			"name": "variable.other.skibidipp",
+			"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
 		}
 	},
 	"scopeName": "source.skibidipp"
