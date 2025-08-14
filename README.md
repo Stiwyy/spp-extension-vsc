@@ -1,65 +1,71 @@
-# skibidi-plus-plus README
+# Skibidi++ Language Support
 
-This is the README for your extension "skibidi-plus-plus". After writing up a brief description, we recommend including the following sections.
+![Version](https://img.shields.io/badge/version-0.0.1-blue)
+
+VS Code extension providing syntax highlighting for the Skibidi++ programming language.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+-   Syntax highlighting for Skibidi++ (`.spp`) files
+-   Custom Tokyo Night-inspired color theme optimized for Skibidi++
+-   Recognizes language constructs:
+    -   Keywords and declarations (`const`, `let`, `var`, etc.)
+    -   Built-in functions (`print`, `exit`)
+    -   Special objects (`console`)
+    -   Strings, numbers, booleans, and null values
+    -   Operators and expressions
 
-For example if there is an image subfolder under your extension project workspace:
+![Syntax Highlighting Example](images/syntax-example.png)
 
-\!\[feature X\]\(images/feature-x.png\)
+## Usage
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open or create a file with the `.spp` extension
+2. VS Code will automatically detect it as a Skibidi++ file
+3. For the best experience, select the included theme:
+    - Press `Ctrl+K Ctrl+T` or go to File → Preferences → Color Theme
+    - Select "Skibidi++ Theme"
+
+## Example
+
+```skibidipp
+const username = "Stiwyy";
+const date = "2025-08-14";
+const time = "22:26:30";
+
+const num = 42;
+const pi = 3.14159;
+const isTrue = true;
+const empty = null;
+
+console.print("Hello, " + username + " at " + date + " " + time);
+console.print("Number: " + num + ", Float: " + pi);
+
+exit(0);
+```
+
+## Color Theme
+
+The extension includes a custom Tokyo Night-inspired theme with colors specifically chosen for Skibidi++:
+
+-   **Keywords** (if, else, while, for): Purple
+-   **Declarations** (const, let, var): Purple
+-   **Strings**: Green
+-   **Numbers, Booleans, null**: Orange
+-   **Built-in Functions** (exit, print): Pink
+-   **Special Objects** (console): Turquoise
+-   **Variables**: Light blue
+-   **Operators**: Light blue
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+-   VS Code 1.60.0 or higher
 
-## Extension Settings
+## License
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+MIT
 
-For example:
+## Author
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+[Stiwyy](https://github.com/Stiwyy)
 
 ---
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
