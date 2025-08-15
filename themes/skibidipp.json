@@ -18,22 +18,22 @@
 	"tokenColors": [
 		{
 			"name": "Comments",
-			"scope": ["comment", "comment.line", "comment.block"],
+			"scope": "comment",
 			"settings": {
 				"foreground": "#565f89"
 			}
 		},
 		{
 			"name": "Keywords",
-			"scope": ["keyword.control.skibidipp"],
+			"scope": "keyword.control",
 			"settings": {
 				"foreground": "#bb9af7",
 				"fontStyle": "bold"
 			}
 		},
 		{
-			"name": "Declaration Keywords",
-			"scope": ["storage.type.skibidipp"],
+			"name": "Storage",
+			"scope": "storage.type",
 			"settings": {
 				"foreground": "#bb9af7",
 				"fontStyle": "bold"
@@ -41,70 +41,53 @@
 		},
 		{
 			"name": "Strings",
-			"scope": ["string.quoted.double.skibidipp"],
+			"scope": "string",
 			"settings": {
 				"foreground": "#9ece6a"
 			}
 		},
 		{
-			"name": "Numbers",
-			"scope": ["constant.numeric.skibidipp"],
+			"name": "Numbers and Booleans",
+			"scope": ["constant.numeric", "constant.language"],
 			"settings": {
 				"foreground": "#ff9e64"
-			}
-		},
-		{
-			"name": "Booleans and Null",
-			"scope": [
-				"constant.language.boolean.skibidipp",
-				"constant.language.null.skibidipp"
-			],
-			"settings": {
-				"foreground": "#ff9e64"
-			}
-		},
-		{
-			"name": "Built-in Functions",
-			"scope": ["support.function.skibidipp"],
-			"settings": {
-				"foreground": "#f7768e",
-				"fontStyle": "bold"
 			}
 		},
 		{
 			"name": "Functions",
-			"scope": ["entity.name.function.skibidipp"],
+			"scope": "entity.name.function",
 			"settings": {
 				"foreground": "#7aa2f7"
 			}
 		},
 		{
-			"name": "Objects",
-			"scope": ["variable.other.object.skibidipp"],
-			"settings": {
-				"foreground": "#2ac3de",
-				"fontStyle": "bold"
-			}
-		},
-		{
 			"name": "Variables",
-			"scope": ["variable.other.skibidipp"],
+			"scope": "variable.other",
 			"settings": {
 				"foreground": "#c0caf5"
 			}
 		},
 		{
 			"name": "Operators",
-			"scope": ["keyword.operator.skibidipp"],
+			"scope": "keyword.operator",
 			"settings": {
 				"foreground": "#89ddff"
 			}
 		},
 		{
-			"name": "Escape Characters",
-			"scope": ["constant.character.escape.skibidipp"],
+			"name": "CONSOLE - CYAN",
+			"scope": "skibidipp.console",
 			"settings": {
-				"foreground": "#f7768e"
+				"foreground": "#2ac3de",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"name": "BUILT-INS - RED",
+			"scope": "skibidipp.builtins",
+			"settings": {
+				"foreground": "#f7768e",
+				"fontStyle": "bold"
 			}
 		}
 	]

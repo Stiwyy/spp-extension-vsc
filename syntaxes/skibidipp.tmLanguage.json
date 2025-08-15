@@ -4,21 +4,22 @@
 	"patterns": [
 		{ "include": "#keywords" },
 		{ "include": "#storage" },
+		{ "include": "#console_object" },
+		{ "include": "#built_in_functions" },
+		{ "include": "#property_access" },
 		{ "include": "#strings" },
 		{ "include": "#numbers" },
 		{ "include": "#comments" },
 		{ "include": "#constants" },
 		{ "include": "#operators" },
-		{ "include": "#builtin_functions" },
 		{ "include": "#functions" },
-		{ "include": "#objects" },
 		{ "include": "#variables" }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.skibidipp",
+					"name": "keyword.control",
 					"match": "\\b(if|else|while|for|return|function|class|new|this)\\b"
 				}
 			]
@@ -26,34 +27,34 @@
 		"storage": {
 			"patterns": [
 				{
-					"name": "storage.type.skibidipp",
+					"name": "storage.type",
 					"match": "\\b(const|let|var)\\b"
 				}
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.skibidipp",
+			"name": "string.quoted.double",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.skibidipp",
+					"name": "constant.character.escape",
 					"match": "\\\\."
 				}
 			]
 		},
 		"numbers": {
-			"name": "constant.numeric.skibidipp",
+			"name": "constant.numeric",
 			"match": "\\b([0-9]+(\\.[0-9]+)?(e[+-]?[0-9]+)?)\\b"
 		},
 		"comments": {
 			"patterns": [
 				{
-					"name": "comment.line.double-slash.skibidipp",
+					"name": "comment.line.double-slash",
 					"match": "//.*$"
 				},
 				{
-					"name": "comment.block.skibidipp",
+					"name": "comment.block",
 					"begin": "/\\*",
 					"end": "\\*/"
 				}
@@ -62,33 +63,40 @@
 		"constants": {
 			"patterns": [
 				{
-					"name": "constant.language.boolean.skibidipp",
+					"name": "constant.language.boolean",
 					"match": "\\b(true|false)\\b"
 				},
 				{
-					"name": "constant.language.null.skibidipp",
+					"name": "constant.language.null",
 					"match": "\\bnull\\b"
 				}
 			]
 		},
 		"operators": {
-			"name": "keyword.operator.skibidipp",
+			"name": "keyword.operator",
 			"match": "\\+|\\-|\\*|\\/|\\=|\\>|\\<|\\!|\\&|\\||\\^|\\~|\\%"
 		},
-		"builtin_functions": {
-			"name": "support.function.skibidipp",
-			"match": "\\b(exit|print)\\b"
+		"console_object": {
+			"match": "\\b(console)\\b",
+			"name": "skibidipp.console"
+		},
+		"built_in_functions": {
+			"match": "\\b(print|exit)\\b",
+			"name": "skibidipp.builtins"
+		},
+		"property_access": {
+			"match": "(\\.)([a-zA-Z_][a-zA-Z0-9_]*)",
+			"captures": {
+				"1": { "name": "punctuation.accessor" },
+				"2": { "name": "skibidipp.builtins" }
+			}
 		},
 		"functions": {
-			"name": "entity.name.function.skibidipp",
+			"name": "entity.name.function",
 			"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
 		},
-		"objects": {
-			"name": "variable.other.object.skibidipp",
-			"match": "\\b(console)\\b"
-		},
 		"variables": {
-			"name": "variable.other.skibidipp",
+			"name": "variable.other",
 			"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
 		}
 	},

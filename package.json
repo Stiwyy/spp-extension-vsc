@@ -1,16 +1,20 @@
 {
 	"name": "skibidi-plus-plus",
 	"displayName": "skibidi-plus-plus",
-	"description": "Syntax highlighting for Skibidi++ programming language",
-	"version": "0.0.1",
+	"description": "Syntax highlighting for Skibidi++ programming language (forces Skibidi++ colors in .spp files regardless of active theme)",
+	"version": "0.0.3",
 	"publisher": "Stiwyy",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Stiwyy/spp-extension-vsc"
 	},
 	"engines": {
-		"vscode": "^1.103.0"
+		"vscode": "^1.80.0"
 	},
+	"main": "./extension.js",
+	"activationEvents": [
+		"onLanguage:skibidipp"
+	],
 	"categories": [
 		"Programming Languages"
 	],
