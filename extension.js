@@ -1,8 +1,3 @@
-// Runtime color overrides for Skibidi++ (.spp) files
-// This uses semantic highlighting disable + decoration layers to enforce colors
-// NOTE: This is a best-effort approach; VS Code does not officially support per-language theme override
-// without user settings, but decorations can visually replace token colors.
-
 const vscode = require('vscode');
 
 /** Hard-coded color map aligned with theme skibidipp.json */
@@ -33,7 +28,7 @@ const decorations = Object.fromEntries(
 const REGEX = {
 	commentLine: /\/\/.*$/gm,
 	commentBlock: /\/\*[\s\S]*?\*\//g,
-	string: /"(?:\\.|[^"\\])*"/g,
+	string: /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,
 	number: /\b(\d+(?:\.\d+)?(?:e[+-]?\d+)?)\b/gi,
 	keyword: /\b(if|else|while|for|return|function|class|new|this)\b/g,
 	storage: /\b(const|let|var)\b/g,
@@ -76,8 +71,8 @@ function provideDecorations(editor) {
 	const commentRanges = [...commentLineRanges, ...commentBlockRanges];
 	editor.setDecorations(decorations.comment, commentRanges);
 
-	const occupied = commentRanges;
-	const isInsideComment = (offset) =>
+	let occupied = [...commentRanges];
+	const isInsideOccupied = (offset) =>
 		occupied.some((r) => {
 			const start = editor.document.offsetAt(r.start);
 			const end = editor.document.offsetAt(r.end);
@@ -88,7 +83,7 @@ function provideDecorations(editor) {
 		const ranges = [];
 		let m;
 		while ((m = regex.exec(text))) {
-			if (isInsideComment(m.index)) continue;
+			if (isInsideOccupied(m.index)) continue;
 			if (predicate && !predicate(m)) continue;
 			const start = editor.document.positionAt(m.index);
 			const end = editor.document.positionAt(m.index + m[0].length);
@@ -96,9 +91,12 @@ function provideDecorations(editor) {
 			if (regex.lastIndex === m.index) regex.lastIndex++;
 		}
 		editor.setDecorations(decorations[name], ranges);
+		return ranges;
 	};
 
-	apply('string', new RegExp(REGEX.string));
+	const stringRanges = apply('string', new RegExp(REGEX.string));
+	occupied = [...occupied, ...stringRanges];
+
 	apply('number', new RegExp(REGEX.number));
 	apply('keyword', new RegExp(REGEX.keyword));
 	apply('storage', new RegExp(REGEX.storage));
@@ -139,7 +137,7 @@ function provideDecorations(editor) {
 	const variableRegex = new RegExp(REGEX.variable);
 	const varRanges = [];
 	while ((vm = variableRegex.exec(text))) {
-		if (isInsideComment(vm.index)) continue;
+		if (isInsideOccupied(vm.index)) continue;
 		if (excludeRegex.test(vm[0])) continue;
 		if (/^\d/.test(vm[0])) continue;
 		const start = editor.document.positionAt(vm.index);

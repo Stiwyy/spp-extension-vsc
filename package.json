@@ -2,7 +2,7 @@
 	"name": "skibidi-plus-plus",
 	"displayName": "skibidi-plus-plus",
 	"description": "Syntax highlighting for Skibidi++ programming language (forces Skibidi++ colors in .spp files regardless of active theme)",
-	"version": "0.0.3",
+	"version": "1.0.0",
 	"publisher": "Stiwyy",
 	"repository": {
 		"type": "git",

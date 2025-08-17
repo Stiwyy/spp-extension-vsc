@@ -1,6 +1,6 @@
 # Skibidi++ Language Support
 
-![Version](https://img.shields.io/badge/version-0.0.3-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 
 VS Code extension providing syntax highlighting for the Skibidi++ programming language.
 

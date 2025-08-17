@@ -7,7 +7,8 @@
 		{ "include": "#console_object" },
 		{ "include": "#built_in_functions" },
 		{ "include": "#property_access" },
-		{ "include": "#strings" },
+		{ "include": "#strings_double" },
+		{ "include": "#strings_single" },
 		{ "include": "#numbers" },
 		{ "include": "#comments" },
 		{ "include": "#constants" },
@@ -32,10 +33,21 @@
 				}
 			]
 		},
-		"strings": {
+		"strings_double": {
 			"name": "string.quoted.double",
 			"begin": "\"",
 			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				}
+			]
+		},
+		"strings_single": {
+			"name": "string.quoted.single",
+			"begin": "'",
+			"end": "'",
 			"patterns": [
 				{
 					"name": "constant.character.escape",
